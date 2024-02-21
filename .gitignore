@@ -1,3 +1,5 @@
 .env
 pseudo-code-notes
 pseudo-code-models
+node_modules
+package-lock.json
