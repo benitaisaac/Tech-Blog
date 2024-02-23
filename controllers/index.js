@@ -1,10 +1,20 @@
+//Central route file that imports all route modules 
+
 const router = require('express').Router();
 
-// const apiRoutes = require('./api');
+
 const homeRoutes = require('./homeRoutes');
+const authRoutes = require('./authRoutes');
+const commentRoutes = require('./api/commentRoutes');
+const postRoutes = require('./postRoutes');
 
 router.use('/', homeRoutes);
-// router.use('/api', apiRoutes);
+
+//is this right? 
+router.use('/auth', authRoutes);
+router.use('/comment', commentRoutes);
+router.use('/post', postRoutes);
+
 
 //for troubleshooting
 router.use((req, res) => {

@@ -12,4 +12,16 @@ router.get('/', async(req, res) => {
     }
 });
 
+//GET a specific blogpost
+//use withAuth middleware so you need to login first
+
+//GET profile route for user to see their blogposts
+
+
+//GET login route for user to login
+//we will render a profile handlebars for this 
+
+// get route to get all the posts 
+
+
 module.exports = router;
