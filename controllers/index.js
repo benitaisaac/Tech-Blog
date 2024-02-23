@@ -1,16 +1,9 @@
-//Central route file that imports all route modules 
-
 const router = require('express').Router();
 
-
+const apiRoutes = require('./api');
 const homeRoutes = require('./homeRoutes');
 
 router.use('/', homeRoutes);
-
-
-//for troubleshooting
-router.use((req, res) => {
-    res.send("<h1>Wrong Route!</h1>")
-  });
+router.use('/api', apiRoutes);
 
 module.exports = router;

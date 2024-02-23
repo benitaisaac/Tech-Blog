@@ -41,10 +41,26 @@ router.get("/blogPost/:id", async (req, res) => {
   }
 });
 
-//GET profile route for user to see their blogposts
+//GET  profile route for user to see their profile page
+//this will have their blog posts ?
+router.get("/profile", async (req, res) => {
+    //this will be a findAll() method? 
+    try{
+
+    } catch(err) {
+        res.status(500).json(err);
+    }
+});
 
 //GET login route for user to login
 //we will render a profile handlebars for this
+router.get("/login", async (req, res) => {
+    try {
+
+    } catch(err) {
+        res.status(500).json(err);
+    }
+});
 
 // get route to get all the posts
 
