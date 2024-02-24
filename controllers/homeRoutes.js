@@ -52,7 +52,8 @@ router.get('/profile', async(req, res) => {
             attributes: { exclude: ['password']},
             include: [{model: Blogpost}],
         });
-        //TODO: views, render profile handlebars
+        
+        res.render('profile');
 
     } catch(err) {
         res.status(500).json(err);
