@@ -11,6 +11,7 @@ router.get("/", async (req, res) => {
     res.status(500).json(err);
   }
   //TODO: add code to render data on views handlebars
+  //will be called homepage
 });
 
 
@@ -31,25 +32,31 @@ router.get("/blogPost/:id", async (req, res) => {
   }
 });
 
-//GET  profile route for user to see their profile page
-//this will have their blog posts ?
-router.get("/profile", async (req, res) => {
-    //this will be a findAll() method? 
-    try{
+//GET route with blogposts only from signed in user
+//(can't test through insomnia because req.sessiondoesn't exist)
+router.get('/profile', async(req, res) => {
+    try {
+        const userData = await User.findByPk(req.session.userName, {
+            attributes: { exclude: ['password']},
+            include: [{model: Blogpost}],
+        });
+        //TODO: views, render profile handlebars
 
     } catch(err) {
         res.status(500).json(err);
     }
 });
 
-//GET login route for user to login
-//we will render a profile handlebars for this
-router.get("/login", async (req, res) => {
-    try {
 
-    } catch(err) {
-        res.status(500).json(err);
+
+//if a user is logged in and goes to logged in,
+//they will be redirected to their profile 
+router.get("/login", (req, res) => {
+    if (req.session.logged_in) {
+        res.redirect('/profile');
+        return;
     }
+    res.render('login');
 });
 
 // get route to get all the posts
