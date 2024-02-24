@@ -1,4 +1,5 @@
 const router = require("express").Router();
+const { json } = require("sequelize");
 const { User } = require("../../models");
 
 // create a new user 
@@ -46,6 +47,14 @@ router.post('/login', async (req, res) => {
 });
 
 // create a logout route 
-
+router.post('/logout', (req, res) => {
+    if (req.session.logged_in) {
+        req.session.destroy(() => {
+            res.status(204).end();
+        });
+    } else {
+        res.status(404).end();
+    }
+});
 
 module.exports = router;
