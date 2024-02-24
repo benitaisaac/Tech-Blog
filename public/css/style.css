@@ -1,3 +1,18 @@
 body {
     margin: 20px;
 }
+
+#card-styling {
+    display:flex;
+    justify-content: space-around;
+}
+
+#forms {
+    display:flex;
+    justify-content: space-around;
+
+}
+
+.card{
+    margin: 5px;
+}
