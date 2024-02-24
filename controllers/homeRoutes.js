@@ -13,26 +13,16 @@ router.get("/", async (req, res) => {
   //TODO: add code to render data on views handlebars
 });
 
-//testing to see all comments 
-router.get("/comments", async (req, res) => {
-    try {
-      const comments = await Comment.findAll();
-      res.status(200).json(comments);
-    } catch (err) {
-      res.status(500).json(err);
-    }
-    //TODO: add code to render data on views handlebars
-  });
 
 //GET a specific blogpost
-//use withAuth middleware so you need to login first
+//TODO: use withAuth middleware so you need to login first
 router.get("/blogPost/:id", async (req, res) => {
   try {
     const blogPostData = await Blogpost.findByPk(req.params.id, {
       include: [{ model: Comment }],
     });
     if (!blogPostData) {
-      res.status(404).json({ message: "no product found with this id!" });
+      res.status(404).json({ message: "no blogpost found with this id!" });
       return;
     }
     res.status(200).json(blogPostData);
