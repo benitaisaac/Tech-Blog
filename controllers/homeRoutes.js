@@ -5,13 +5,25 @@ const { User, Comment, Blogpost } = require("../models");
 //Get all blogposts
 router.get("/", async (req, res) => {
   try {
-    const blogPostData = await Blogpost.findAll();
-    res.status(200).json(blogPostData);
+    const blogPostData = await Blogpost.findAll({
+      include: [
+        {
+          model: User,
+          attributes: ['userName'],
+        },
+      ],
+    });
+
+    //Serialize data so the template can read it
+    const blogposts = blogPostData.map((blogpost) => blogpost.get({plain: true}));
+
+    res.render('homepage', {
+      blogposts,
+      logged_in: req.session.logged_in
+    });
   } catch (err) {
     res.status(500).json(err);
   }
-  //TODO: add code to render data on views handlebars
-  //will be called homepage
 });
 
 
