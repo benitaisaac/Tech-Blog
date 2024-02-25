@@ -32,13 +32,24 @@ router.get("/", async (req, res) => {
 router.get("/blogPost/:id", async (req, res) => {
   try {
     const blogPostData = await Blogpost.findByPk(req.params.id, {
-      include: [{ model: Comment }],
+      include: [
+        { model: Comment, attributes: ['content'] },
+        { model: User, attributes: ['userName'] }
+      ]
     });
     if (!blogPostData) {
       res.status(404).json({ message: "no blogpost found with this id!" });
       return;
     }
-    res.status(200).json(blogPostData);
+       //this is for rendering the data on the page (views)
+       const blogpost = blogPostData.get({ plain: true });
+
+       console.log(blogpost);
+
+       res.render('blogpost', {
+         ...blogpost,
+         logged_in: req.session.logged_in
+       });
   } catch (err) {
     res.status(500).json(err);
   }
