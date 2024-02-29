@@ -1,2 +1,8 @@
-<h1> this is the profile page </h1>
+
 <h2>Welcome, {{userName}}!</h2>
+
+{{#each blogposts}}
+ {{> userblogs}}
+ {{/each}}
+
+

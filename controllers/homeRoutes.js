@@ -69,7 +69,7 @@ router.get('/profile', withAuth, async(req, res) => {
 
         const userBlogPost = userData.get({plain: true});
 
-        // console.log(userBlogPost);
+        console.log(userBlogPost);
         
         res.render('profile', {
           ...userBlogPost,
