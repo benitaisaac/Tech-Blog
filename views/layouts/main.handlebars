@@ -36,9 +36,14 @@
               </li>
             <!-- Link to profile -->
 
+            {{#if logged_in}}
+            {{!-- Log out button  --}}
+            <a><button id="logout"> Log Out </button></a>
+            {{else}}
             <!-- Log in Button -->
               <a href="/login"><button> Log In </button></a>
             <!-- Log in Button -->
+            {{/if}}
 
           </ul>
           
@@ -52,6 +57,11 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
         crossorigin="anonymous"></script>
+
+        <!-- Render script for logged in users only -->
+  {{#if logged_in}}
+  <script src="/js/logout.js"></script>
+  {{/if}}
 </body>
 
 </html>
