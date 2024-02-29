@@ -63,6 +63,12 @@ router.get('/profile', async(req, res) => {
             attributes: { exclude: ['password']},
             include: [{model: Blogpost}],
         });
+
+        //serialize the data from a user's blogpost
+
+        // const userBlogPost = userData.get({plain: true});
+
+        // console.log(userBlogPost);
         
         res.render('profile');
 
@@ -70,7 +76,6 @@ router.get('/profile', async(req, res) => {
         res.status(500).json(err);
     }
 });
-
 
 
 //if a user is logged in and goes to logged in,
