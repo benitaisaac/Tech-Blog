@@ -1,3 +1,15 @@
-<h1> can you see me </h1>
 
-<p> Title: {{title}} </p>
+
+<div class="text-center">
+<h2> Title: {{title}}</h2>
+  <p>{{content}}</p>
+  <p>Created by {{user.userName}} on {{format_date date_created}}</p>
+<div class="comment">
+                {{#each comments}}
+                {{> comment }}
+                {{/each}}
+            </div>
+   <p>
+    <button class="btn btn-primary"> A sample button </button>
+  </p>
+</div>
