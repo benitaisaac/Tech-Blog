@@ -1,6 +1,6 @@
 const router = require("express").Router();
 const { User, Comment, Blogpost } = require("../models");
-//TODO: add withAuth function
+const withAuth = require('../utils/auth');
 
 //Get all blogposts
 router.get("/", async (req, res) => {
@@ -57,21 +57,24 @@ router.get("/blogPost/:id", async (req, res) => {
 
 //GET route with blogposts only from signed in user
 //(can't test through insomnia because req.sessiondoesn't exist)
-router.get('/profile', async(req, res) => {
+router.get('/profile', withAuth, async(req, res) => {
     try {
-        const userData = await User.findByPk(req.session.userName, {
+        console.log(req.session);
+        const userData = await User.findByPk(req.session.user_id, {
             attributes: { exclude: ['password']},
             include: [{model: Blogpost}],
         });
 
         //serialize the data from a user's blogpost
 
-        // const userBlogPost = userData.get({plain: true});
+        const userBlogPost = userData.get({plain: true});
 
         // console.log(userBlogPost);
         
-        res.render('profile');
-
+        res.render('profile', {
+          ...userBlogPost,
+          logged_in:true
+        });
     } catch(err) {
         res.status(500).json(err);
     }
