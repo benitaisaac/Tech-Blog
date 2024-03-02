@@ -8,6 +8,7 @@
 
 <button id="create-blogpost-btn" type="" class="btn btn-primary" > Create New Blog Post </button>
 
+{{!-- Add code to create a new blogpost  --}}
 <form id="create-blogpost-form" style="display: none;" class="create-blogpost-form">
     <h2> Create A New Blogpost </h2>
   <div class="form-group">
@@ -19,6 +20,20 @@
     <input type="blogpost-content" class="form-control" id="blogpost-content" placeholder="Blogpost content here...">
   </div>
   <button id="submit-blogpost" type="submit" class="btn btn-primary"> Create </button>
+</form>
+
+{{!-- Add code to update a blogpost --}}
+<form id="update-blogpost-form" style="display: block;" class="update-blogpost-form">
+    <h2> Update A Blogpost </h2>
+  <div class="form-group">
+    <label for="update-blogpost-title"> Title </label>
+    <input type="update-blogpost-title" class="form-control" id="update-blogpost-title"  placeholder="Enter a title">
+  </div>
+  <div class="form-group">
+    <label for="update-blogpost-content"> Content </label>
+    <input type="update-blogpost-content" class="form-control" id="update-blogpost-content" placeholder="Blogpost content here...">
+  </div>
+  <button id="submit-update-blogpost" type="submit" class="btn btn-primary"> Update </button>
 </form>
 
 <script src="./js/createBlogpost.js"></script>
