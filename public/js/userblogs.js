@@ -17,5 +17,5 @@ const delButtonHandler = async(event) => {
 //create update button form handler 
 
 //call delete button form handler 
-document.querySelector('.user-blogpost').addEventListener('click', delButtonHandler);
+document.querySelector('#delete-post-btn').addEventListener('click', delButtonHandler);
 
