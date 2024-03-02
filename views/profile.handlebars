@@ -1,8 +1,24 @@
 
 <h2>Welcome, {{userName}}!</h2>
+<h3> You can view your blogposts below: </h3>
 
 {{#each blogposts}}
  {{> userblogs}}
  {{/each}}
 
+<button id="create-blogpost-btn" type="" class="btn btn-primary" > Create New Blog Post </button>
 
+<form id="create-blogpost-form" style="display: none;" class="create-blogpost-form">
+    <h2> Create A New Blogpost </h2>
+  <div class="form-group">
+    <label for="blogpost-title"> Title </label>
+    <input type="blogpost-title" class="form-control" id="blogpost-title"  placeholder="Enter a title">
+  </div>
+  <div class="form-group">
+    <label for="blogpost-content"> Content </label>
+    <input type="blogpost-content" class="form-control" id="blogpost-content" placeholder="Blogpost content here...">
+  </div>
+  <button id="submit-blogpost" type="submit" class="btn btn-primary"> Create </button>
+</form>
+
+<script src="./js/createBlogpost.js"></script>
