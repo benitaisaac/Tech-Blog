@@ -23,6 +23,7 @@ const loginFormHandler = async (event) => {
 const signupFormHandler = async (event) => {
     event.preventDefault();
 
+    //Make sure variable name aligns with model name 
     const userName = document.querySelector('#signup-name').value.trim();
     const password = document.querySelector('#signup-password').value.trim();
 
