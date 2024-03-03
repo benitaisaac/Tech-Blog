@@ -1,13 +1,25 @@
 //This form will handle updating and deleting blogposts
 // since these are the two buttons on each div that displays a user's blogposts
 
-const updateBlogpostButton = document.getElementById('update-post-btn');
-const updatedBlogpostContent = document.getElementById('update-blogpost-content');
+// const updateBlogpostButton = document.getElementById('update-post-btn');
+// const updatedBlogpostContent = document.getElementById('update-blogpost-content');
+// select all update blogpost buttons (because it is in a loop)
+// const updateBlogpostButtons = document.querySelectorAll('.update-post-btn');
+
+const updateParentElement = document.querySelector('.update-parent-container')
 
 //When you update a blogpost, the update form appears and the button disappears
-updateBlogpostButton.addEventListener('click', function() {
-    document.getElementById('update-post-btn').style.display = 'none';
-    document.getElementById('update-blogpost-form').style.display= 'block';
+// updateBlogpostButton.addEventListener('click', function() {
+//     document.getElementById('update-post-btn').style.display = 'none';
+//     document.getElementById('update-blogpost-form').style.display= 'block';
+// });
+
+//Use deletegation to handle events on a parent element
+updateParentElement.addEventListener('click', function(event) {
+    if(event.target.classList.contains('update-post-btn')) {
+        document.getElementById('update-post-btn').style.display = 'none';
+        document.getElementById('update-blogpost-form').style.display= 'block';
+    }
 });
 
 //create delete button form handler
