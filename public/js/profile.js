@@ -1,13 +1,9 @@
+const createBlogpostButton = document.getElementById('create-blogpost-btn');
+
 //When you click create blogpost, the form appears and the button disappears 
-document.getElementById('create-blogpost-btn').addEventListener('click', function() {
+createBlogpostButton.addEventListener('click', function() {
     document.getElementById('create-blogpost-btn').style.display = 'none';
     document.getElementById('create-blogpost-form').style.display= 'block';
-});
-
-//When you update a blogpost, the update form appears and the button disappears
-document.getElementById('update-post-btn').addEventListener('click', function() {
-    document.getElementById('update-post-btn').style.display = 'none';
-    document.getElementById('update-blogpost-form').style.display= 'block';
 });
 
 

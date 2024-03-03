@@ -10,7 +10,7 @@
                 {{/each}}
             </div>
    <p>
-    <button id="update-post-btn" class="btn btn-primary"> Update Post </button>
+    <button id="update-post-btn" data-id="{{id}}" class="btn btn-primary"> Update Post </button>
     <button id="delete-post-btn" data-id="{{id}}" class="btn btn-danger"> Delete Post </button>
   </p>
 </div>
@@ -29,5 +29,6 @@
   </div>
   <button id="submit-update-blogpost" data-id="{{id}}" type="submit" class="btn btn-primary"> Update </button>
 </form>
+
 
 <script src="../js/userblogs.js"></script>
