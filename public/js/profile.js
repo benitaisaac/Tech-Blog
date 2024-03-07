@@ -1,13 +1,13 @@
 const createBlogpostButton = document.getElementById('create-blogpost-btn');
+const updateBlogpostButtons = document.querySelectorAll('.update-post-btn');
 
-const updateBlogpostButton = document.getElementById('update-post-btn');
-
-updateBlogpostButton.addEventListener('click', function() {
-    document.getElementById('update-post-btn').style.display = 'none';
-    document.getElementById('update-blogpost-form').style.display= 'block';
-});
-
-
+updateBlogpostButtons.forEach((btn) => {
+    btn.addEventListener('click', function() {
+        btn.style.display = 'none';
+        const id = btn.dataset.id;
+        document.getElementById(`update-blogpost-form-${id}`).style.display= 'block';
+    });
+})
 
 //When you click create blogpost, the form appears and the button disappears 
 createBlogpostButton.addEventListener('click', function() {
@@ -16,6 +16,7 @@ createBlogpostButton.addEventListener('click', function() {
 });
 
 
+// Sending values from new blogpost to the database by collecting it from the form 
 const createBlogFormHandler = async (event) => {
     event.preventDefault();
 //collect values from the form 
@@ -53,13 +54,17 @@ const delButtonHandler = async(event) => {
 };
 
 //create update button form handler 
-const updateButtonHandler = async(event) => {
+const updateFormHandler = async(event) => {
     event.preventDefault();
+    
+    // console.log(event.target);
+
+    const id = event.target.dataset.id;
     //collect updated values from the form
-    const title = document.querySelector('#update-blogpost-title').value.trim();
-    const content = document.querySelector('#update-blogpost-content').value.trim();
+    const title = document.querySelector(`#update-blogpost-title-${id}`).value.trim();
+    const content = document.querySelector(`#update-blogpost-content-${id}`).value.trim();
     //collect id data to add in route fetch request
-    const id = event.target.getAttribute('data-id');
+    // const id = event.target.getAttribute('data-id');
 
 // Create fetch request, sending over all data
     if(title && content) {
@@ -79,9 +84,14 @@ const updateButtonHandler = async(event) => {
 
 
 //call delete button form handler 
-document.querySelector('#delete-post-btn').addEventListener('click', delButtonHandler);
+// document.querySelector('.delete-post-btn').addEventListener('click', delButtonHandler);
 
-document.querySelector('#submit-update-blogpost').addEventListener('click', updateButtonHandler);
+// document.querySelector('.submit-update-blogpost').addEventListener('click', updateButtonHandler);
+
+document.querySelectorAll('.update-blogpost-form').forEach((form) => {
+    form.addEventListener('submit', updateFormHandler)
+}
+);
 
 
 document.querySelector('.create-blogpost-form').addEventListener('submit', createBlogFormHandler);

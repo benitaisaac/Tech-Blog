@@ -10,24 +10,24 @@
                 {{/each}}
             </div>
    <div class="update-parent-container">
-    <button id="update-post-btn" data-id="{{id}}" class="btn btn-primary"> Update Post </button>
+    <button id="update-post-btn-{{id}}" data-id="{{id}}" class="btn btn-primary update-post-btn"> Update Post </button>
   </div>
-    <button id="delete-post-btn" data-id="{{id}}" class="btn btn-danger"> Delete Post </button>
+    <button id="delete-post-btn-{{id}}" data-id="{{id}}" class="btn btn-danger"> Delete Post </button>
 </div>
 
 {{!-- Add code to update a blogpost --}}
-<form id="update-blogpost-form" style="display: none;" class="update-blogpost-form">
+<form id="update-blogpost-form-{{id}}" data-id="{{id}}" style="display: none;" class="update-blogpost-form">
     <h2> Update A Blogpost </h2>
   <div class="form-group">
-    <label for="update-blogpost-title"> Title </label>
-    <input type="update-blogpost-title" class="form-control" id="update-blogpost-title"  placeholder="Enter a title">
+    <label for="update-blogpost-title-{{id}}"> Title </label>
+    <input  type="update-blogpost-title" class="form-control" id="update-blogpost-title-{{id}}"  placeholder="Enter a title" value="{{title}}">
   </div>
 
   <div class="form-group">
-    <label for="update-blogpost-content"> Content </label>
-    <input type="update-blogpost-content" class="form-control" id="update-blogpost-content" placeholder="Blogpost content here...">
+    <label for="update-blogpost-content-{{id}}"> Content </label>
+    <input type="update-blogpost-content" class="form-control" id="update-blogpost-content-{{id}}" placeholder="Blogpost content here..." value="{{content}}">
   </div>
-  <button id="submit-update-blogpost" data-id="{{id}}" type="submit" class="btn btn-primary"> Update </button>
+  <button type="submit" class="btn btn-primary submit-update-blogpost"> Update </button>
 </form>
 
 <script src="../js/userblogs.js"></script>
