@@ -44,8 +44,6 @@ router.get("/blogPost/:id", async (req, res) => {
        //this is for rendering the data on the page (views)
        const blogpost = blogPostData.get({ plain: true });
 
-       console.log(blogpost);
-
        res.render('blogpost', {
          ...blogpost,
          logged_in: req.session.logged_in
@@ -68,8 +66,6 @@ router.get('/profile', withAuth, async(req, res) => {
         //serialize the data from a user's blogpost
 
         const userBlogPost = userData.get({plain: true});
-
-        console.log(userBlogPost);
         
         res.render('profile', {
           ...userBlogPost,
