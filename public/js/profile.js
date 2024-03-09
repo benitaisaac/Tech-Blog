@@ -1,6 +1,9 @@
 const createBlogpostButton = document.getElementById("create-blogpost-btn");
+//create variable for getting all update and delete buttons
 const updateBlogpostButtons = document.querySelectorAll(".update-post-btn");
+const deleteBlogpostButtons = document.querySelectorAll(".delete-post-btn");
 
+// add event listener on each update blogpost button to display form and hide button
 updateBlogpostButtons.forEach((btn) => {
   btn.addEventListener("click", function () {
     btn.style.display = "none";
@@ -9,6 +12,24 @@ updateBlogpostButtons.forEach((btn) => {
       "block";
   });
 });
+
+// add event listener to delete the blogpost with the specific delete button that was chosen 
+deleteBlogpostButtons.forEach((btn) => {
+  btn.addEventListener("click", async function() {
+    if (event.target.hasAttribute("data-id")) {
+      const id = event.target.getAttribute("data-id");
+      const response = await fetch(`/api/blogPosts/${id}`, {
+        method: "DELETE",
+      });
+  
+      if (response.ok) {
+        document.location.replace("/profile");
+      } else {
+        alert("Failed to delete project");
+      }
+    }
+  } )
+})
 
 //When you click create blogpost, the form appears and the button disappears
 createBlogpostButton.addEventListener("click", function () {
@@ -38,21 +59,6 @@ const createBlogFormHandler = async (event) => {
   }
 };
 
-//create delete button form handler
-const delButtonHandler = async (event) => {
-  if (event.target.hasAttribute("data-id")) {
-    const id = event.target.getAttribute("data-id");
-    const response = await fetch(`/api/blogPosts/${id}`, {
-      method: "DELETE",
-    });
-
-    if (response.ok) {
-      document.location.replace("/profile");
-    } else {
-      alert("Failed to delete project");
-    }
-  }
-};
 
 //create update button form handler
 const updateFormHandler = async (event) => {
@@ -86,11 +92,6 @@ const updateFormHandler = async (event) => {
     }
   }
 };
-
-//call delete button form handler
-// document.querySelector('.delete-post-btn').addEventListener('click', delButtonHandler);
-
-// document.querySelector('.submit-update-blogpost').addEventListener('click', updateButtonHandler);
 
 document.querySelectorAll(".update-blogpost-form").forEach((form) => {
   form.addEventListener("submit", updateFormHandler);
