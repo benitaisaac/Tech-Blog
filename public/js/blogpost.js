@@ -16,7 +16,6 @@ const commentHandler = async (event) => {
     });
 
     if (response.ok) {
-        console.log(response);
       document.location.replace(`/blogPost/${blogpost_id}`);
     } else {
       alert(response.statusText);
