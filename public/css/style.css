@@ -38,6 +38,36 @@ button {
   flex-direction: column;
 }
 
-.text-big{
-    font-size: xx-large;
+.text-big {
+  font-size: xx-large;
+}
+
+a {
+  color: inherit; /* Inherit color from parent */
+  text-decoration: none; /* Remove underline */
+}
+
+a:hover {
+  text-decoration: underline; /* Add underline on hover if desired */
+}
+
+.add-comment-form {
+  margin-top: 20px;
+  width: 30%;
+}
+
+.post-main {
+  background-color: rgb(216, 208, 224);
+  outline: 2px solid black;
+  margin-top: 2px;
+  padding: 5px;
+}
+
+.comment {
+  outline: 1px solid black;
+  padding: 5px;
+}
+
+.comment-header {
+  font-size: xx-large;
 }
