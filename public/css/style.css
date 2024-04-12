@@ -1,26 +1,43 @@
 body {
-    margin: 20px;
+  margin: 20px;
 }
 
 #card-styling {
-    display:flex;
-    justify-content: space-around;
+  display: flex;
+  justify-content: space-around;
 }
 
 #forms {
-    display:flex;
-    justify-content: space-around;
-
+  display: flex;
+  justify-content: space-around;
 }
 
-.card{
-    margin: 5px;
+.card {
+  margin: 5px;
 }
 
-button{
-    margin: 5px;
+button {
+  margin: 5px;
 }
 
-.card-flex{
-    display: inline-flex;
+.card-flex {
+  display: inline-flex;
+}
+
+/* header image styling */
+.header-image {
+  background-size: cover;
+  background-position: center;
+  height: 300px; /* Adjust height as needed */
+  width: 100%; /* Ensures the image covers the entire header */
+  position: relative;
+}
+
+.main-flex {
+  display: flex;
+  flex-direction: column;
+}
+
+.text-big{
+    font-size: xx-large;
 }
