@@ -20,3 +20,7 @@ body {
 button{
     margin: 5px;
 }
+
+.card-flex{
+    display: inline-flex;
+}

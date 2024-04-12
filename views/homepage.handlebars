@@ -1,15 +1,17 @@
+{{#each blogposts as |blogpost|}}
 
-{{#each blogposts as |blogpost| }}
-
-
-<div id="card-styling" class="card" style="width: 18rem;">
-  <div class="card-body">
-    <a href="/blogPost/{{blogpost.id}}" class="card-link">
-    <h5 class="card-title">{{blogpost.title}}</h5>
-    </a>
-    <h6 class="card-subtitle mb-2 text-muted"> Author: {{blogpost.user.userName}}</h6>
-    <p class="card-text">{{blogpost.content}}</p>
+  <div class="card-flex">
+    <div id="card-styling" class="card" style="width: 18rem;">
+      <div class="card-body">
+        <a href="/blogPost/{{blogpost.id}}" class="card-link">
+          <h5 class="card-title">{{blogpost.title}}</h5>
+        </a>
+        <h6 class="card-subtitle mb-2 text-muted">
+          Author:
+          {{blogpost.user.userName}}</h6>
+        <p class="card-text">{{blogpost.content}}</p>
+      </div>
+    </div>
   </div>
-</div>
 
 {{/each}}
