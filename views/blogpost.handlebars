@@ -4,9 +4,11 @@
     <p>{{content}}</p>
     <p>Created by {{user.userName}} on {{format_date date_created}}</p>
   </div>
-    <p class="comment-header"> Comments: </p>
+    <div>
+      <p class="comment-header"> Comments: </p>
+    </div>
 
-<div class="comment">
+<div >
                 {{#each comments}}
                 {{> comment }}
                 {{/each}}

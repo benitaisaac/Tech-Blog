@@ -64,8 +64,14 @@ a:hover {
 }
 
 .comment {
-  outline: 1px solid black;
+  outline: 3px solid black;
   padding: 5px;
+  /* width: max-content; */
+}
+
+.comment-parent{
+  display:flex;
+  justify-content: center;
 }
 
 .comment-header {
