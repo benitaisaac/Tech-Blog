@@ -49,7 +49,7 @@ router.get("/blogPost/:id", async (req, res) => {
     }
     //this is for rendering the data on the page (views)
     const blogpost = blogPostData.get({ plain: true });
-    console.log(blogpost);
+    // console.log(blogpost);
 
     res.render("blogpost", {
       ...blogpost,
