@@ -71,3 +71,24 @@ a:hover {
 .comment-header {
   font-size: xx-large;
 }
+
+.warning {
+  color: rgb(39, 28, 200);
+  text-align: center;
+  margin-top: 30px;
+  outline: 1px;
+  font-weight: 100;
+}
+
+.warning a{
+  color: rgb(93, 21, 187);
+  font-weight: 300;
+}
+
+.nav-link{
+  font-size: 2rem;
+}
+
+.navbar-brand{
+  font-size: 3rem;
+}
