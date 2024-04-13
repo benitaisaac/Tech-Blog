@@ -74,8 +74,11 @@ a:hover {
   justify-content: center;
 }
 
-.comment-header {
+.comment-header p {
   font-size: xx-large;
+}
+.comment-header{
+  margin-top: 20px;
 }
 
 .warning {
